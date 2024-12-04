@@ -36,7 +36,7 @@ vim.keymap.set('n', '<C-n>', ':Neotree<CR>', {})
 
 local config = require('nvim-treesitter.configs')
 config.setup({
-  ensure_installed = { 'lua', 'javascript', 'cpp', 'c', 'html' },
+  ensure_installed = { 'lua', 'javascript', 'cpp', 'c', 'html', 'python' },
   highlight = { enable = true },
   indent = { enable = true },
 })
