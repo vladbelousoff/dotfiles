@@ -10,6 +10,8 @@ return {
 				null_ls.builtins.formatting.stylua,
 				null_ls.builtins.formatting.clang_format,
 				null_ls.builtins.formatting.prettier,
+				null_ls.builtins.formatting.black,
+				null_ls.builtins.formatting.isort,
         require("none-ls.diagnostics.cpplint"),
         require("none-ls.formatting.jq"),
         require("none-ls.code_actions.eslint"),
