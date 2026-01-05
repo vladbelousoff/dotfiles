@@ -7,9 +7,11 @@ return {
   },
   {
     "williamboman/mason-lspconfig.nvim",
+    version = "~1.0",
     config = function()
       require("mason-lspconfig").setup({
         ensure_installed = { "lua_ls", "clangd" },
+        automatic_installation = false,
       })
     end,
   },
@@ -17,20 +19,19 @@ return {
     "neovim/nvim-lspconfig",
     config = function()
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
+      local lspconfig = require("lspconfig")
 
-      vim.lsp.config("lua_ls", {
+      lspconfig.lua_ls.setup({
         capabilities = capabilities,
         settings = {
           Lua = { diagnostics = { globals = { "vim" } } },
         },
       })
 
-      vim.lsp.config("clangd", {
+      lspconfig.clangd.setup({
         capabilities = capabilities,
         cmd = { "clangd", "--background-index", "--clang-tidy" },
       })
-
-      vim.lsp.enable({ "lua_ls", "clangd" })
 
       vim.keymap.set("n", "K", vim.lsp.buf.hover)
       vim.keymap.set("n", "gd", vim.lsp.buf.definition)
